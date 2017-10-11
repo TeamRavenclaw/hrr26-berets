@@ -10,7 +10,7 @@ const User = require('../db/models/user');
 const Product = require('../db/models/product');
 // Please sign up at https://developer.walmartlabs.com/ for API KEY.
 const walmartKey = require('./api-keys');
-const walmartReq = require('walmart')(walmartKey.walmartKey);
+const walmartReq = require('walmart')(walmartKey);
 const nodemailer = require('nodemailer');
 const cache = require('./api-requests');
 const _ = require('lodash');
@@ -90,7 +90,7 @@ let lookUp = (itemId, cb) => {
   let options = {
     uri: 'http://api.walmartlabs.com/v1/items/' + itemId,
     qs: {
-      apiKey: walmartKey.walmartKey,
+      apiKey: walmartKey,
       format: 'json'
     },
     json: true
@@ -148,7 +148,7 @@ exports.getTrending = (req, res) => {
   let options = {
     uri: 'http://api.walmartlabs.com/v1/trends',
     qs: {
-      apiKey: walmartKey.walmartKey,
+      apiKey: walmartKey,
       format: 'json'
     },
     json: true
