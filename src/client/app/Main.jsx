@@ -369,6 +369,16 @@ class Main extends Component {
         <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
         <div className="container-fluid">
           <br />
+          {/* Search results render here */}
+          <div className="row">
+            <div className="col-md-2">
+            </div>
+            <div className="col-md-8 searchContainer">
+              {SearchResultsContainer}
+            </div>
+            <div className="col-md-2">
+            </div> <br />
+          </div>
           {/* Popular items retrieved from Walmart's 'Trending' api */}
           <div className="row">
             <div className="col-md-3">
@@ -390,16 +400,7 @@ class Main extends Component {
             </div>
 
           </div><br />
-          {/* Search results render here */}
-          <div className="row">
-            <div className="col-md-2">
-            </div>
-            <div className="col-md-8 searchContainer">
-              {SearchResultsContainer}
-            </div>
-            <div className="col-md-2">
-            </div>
-          </div>
+
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             <div className="col-md-1">
