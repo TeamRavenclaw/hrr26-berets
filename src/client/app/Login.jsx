@@ -100,7 +100,7 @@ class Login extends React.Component {
                   }}
                 />
               </div>
-              <a href='/auth/google'>Sign In with Google</a>
+              <a href='/auth/google' className="btn btn-danger">Sign In with Google</a>
               <br />
               <br />
             </div>

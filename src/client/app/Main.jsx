@@ -364,6 +364,31 @@ class Main extends Component {
       );
     }
 
+    let display = (
+      <div>
+        <h3>Popular Items</h3>
+        <PopularItems
+          products={this.state.popular}
+          addToList={this.handleAddToList}
+          removeItem={this.handleRemoveFromList}
+          currentList={this.state.currentList}/>
+      </div>
+    );
+
+    if (SearchResultsContainer) {
+      display = (
+        <div className="row">
+          <div className="col-md-2">
+          </div>
+          <div className="col-md-8 searchContainer">
+            {SearchResultsContainer}
+          </div>
+          <div className="col-md-2">
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div>
         <Header loggedIn={this.props.loggedIn} handleSearch={this.handleSearch} handleLogout={this.props.handleLogOut}/>
@@ -377,12 +402,7 @@ class Main extends Component {
               {StoreResultsContainer}
             </div>
             <div className="col-md-6" id="whitebox-popular">
-              <h3>Popular Items</h3>
-              <PopularItems
-                products={this.state.popular}
-                addToList={this.handleAddToList}
-                removeItem={this.handleRemoveFromList}
-                currentList={this.state.currentList}/>
+              {display}
             </div>
             <div className="col-md-3">
               {/* User's current shopping list */}
@@ -390,16 +410,7 @@ class Main extends Component {
             </div>
 
           </div><br />
-          {/* Search results render here */}
-          <div className="row">
-            <div className="col-md-2">
-            </div>
-            <div className="col-md-8 searchContainer">
-              {SearchResultsContainer}
-            </div>
-            <div className="col-md-2">
-            </div>
-          </div>
+
           {/* Featured wishlists based on best-selling items in the Walmart catalog */}
           <div className="row">
             <div className="col-md-1">
