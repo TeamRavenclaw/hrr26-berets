@@ -179,7 +179,6 @@ exports.storeProduct = (product) => {
   Product.findOne({itemId: storingItem.itemId, name: storingItem.name }).exec((err, found) => {
     if (found) {
       //res.status(200);
-      console.log('It exists');
       return;
     } else {
       let newProduct = new Product({
@@ -240,7 +239,7 @@ exports.saveExisting = (req, res) => {
             if (err) {
               console.log('Error --> ', err);
             } else {
-              console.log('It saved a user -> ', updatedUser);
+              // console.log('It saved a user -> ', updatedUser);
               res.status(200).json(updatedUser);
             }
           });
@@ -252,7 +251,7 @@ exports.saveExisting = (req, res) => {
 
 //create a new shoppinglist if shopping list doesn't exist inside of User.shoppinglist object
 exports.createList = (req, res) => {
-  console.log(req.session.passport.user);
+  // console.log(req.session.passport.user);
   let username = req.session.passport.user;
   let newName = req.body.newListName;
   User.findOne({username: username}).exec((err, user) => {

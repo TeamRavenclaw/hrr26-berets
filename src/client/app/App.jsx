@@ -36,7 +36,6 @@ class App extends React.Component {
   }
 
   handleLogIn(user) {
-    console.log('user', user);
     if (user !== undefined) {
       axios.post('/login', user)
         .then((res) => {

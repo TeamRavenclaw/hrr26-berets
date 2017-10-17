@@ -57,7 +57,7 @@ class Main extends Component {
   }
 
   sendList() {
-    console.log('clicked');
+    // console.log('clicked');
     var url = '/sendlist';
     var list = this.state.currentList;
 
@@ -77,7 +77,7 @@ class Main extends Component {
         if (err) {
           console.log('error sending email', err);
         } else {
-          console.log(res);
+          // console.log(res);
         }
       });
   }

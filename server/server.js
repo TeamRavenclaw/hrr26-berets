@@ -49,7 +49,6 @@ function(accessToken, refreshToken, profile, done) {
       // newUser.google.username = profile.emails[0].value;
       newUser.username = profile.emails[0].value;
       newUser.shoppingList = obj;
-      console.log('newUser', newUser);
       passport.serializeUser(function(user, done) {
         done(null, user._id);
       });
@@ -101,7 +100,6 @@ app.listen(port, (req, res) => {
 app.get('/message', (req, res) => {
   smtTransport.sendMail(mailOptions, (err, response) => {
     if (err) { throw err; }
-    console.log('It works');
     res.status(200);
   });
 });
@@ -132,7 +130,6 @@ app.get('/auth/google', passport.authenticate('google', {scope: ['https://www.go
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/login'}),
   function(req, res) {
-    console.log('req.body', req.query);
     res.redirect('/loggedIn/User');
   }
 );
